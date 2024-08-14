@@ -1,0 +1,31 @@
+#parse("/array.java.vm")
+#if ($packageName)
+package $packageName;
+#end##
+// the above block of code is important for the runner to capture the glue and plugins
+
+import java.io.IOException;
+import java.util.List;
+
+import org.junit.runner.RunWith;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+import net.serenitybdd.cucumber.CucumberWithSerenity;
+
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(features = {"$featureFile"} // the path of the feature files
+		,glue= #stringArray($glue)
+		,plugin = #stringArray($plugins)
+		#if(!$featureFile.contains(".feature:") && $tags)
+		,tags = #stringArray($tags)
+		#end
+		
+		
+		
+)
+
+
+public class $className {
+	
+
+}
