@@ -7,11 +7,13 @@ import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import methodClass.BaseClass;
 import methodClass.CheckoutClass;
 import methodClass.HomePage;
 import methodClass.JacketsWomen;
 import methodClass.LightJacket;
+import methodClass.ResearchAPI;
 
 public class stepDefination1 {
 
@@ -20,6 +22,7 @@ public class stepDefination1 {
 	LightJacket ljobj = new LightJacket();
 	CheckoutClass cobj = new CheckoutClass();
 	BaseClass bobj = new BaseClass();
+	ResearchAPI ra = new ResearchAPI();
 
 	@Given("^Set webdriver and launch site \"([^\"]*)\"$")
 	public void set_webdriver_and_launch_site(String site) throws Throwable {
@@ -180,7 +183,7 @@ public class stepDefination1 {
 		bobj.scene = scenario;
 	}
 	
-	@After
+	@After(value = "@UItests")
 	public void quitdriver(Scenario scenario) {
 		System.out.println("bye - after hook");
 		if(scenario.isFailed())
@@ -192,5 +195,47 @@ public class stepDefination1 {
 	public void i_verify_shipping_error_message() throws Throwable {
 		cobj.verifyErrorMsgs();
 	}
+	
+	//##########################################################################################
+	//API methods
+	
+	
+	
+
+	@Given("^API Get request is called$")
+	public void user_loads_the_practice_form_site() throws Throwable {
+		ra.largeAPIops();
+	}
+
+	@Then("^verify the response and display in console$")
+	public void verifyRsp() throws Throwable {
+		ra.verifyRsp();
+	}
+
+	@When("^weather API Get request is called$")
+	public void weather_API_Get_request_is_called() throws Throwable {
+		ra.weatherAPIops();
+	}
+
+	@Given("^Post request with name as \"([^\"]*)\" and job as \"([^\"]*)\"$")
+	public void post_request_with_name_as_and_job_as(String arg1, String arg2) throws Throwable {
+		ra.post_req_BDD(arg1, arg2);
+	}
+
+	@When("^verify the response and display city in console$")
+	public void verify_the_response_and_display_city_in_console() throws Throwable {
+		ra.verifyRsp();
+	}
+
+	@When("^First step of test is executed$")
+	public void api_backgrnd_test() throws Throwable {
+		System.out.println("<----------------------Start of test in one feature------------------------->");
+	}
+
+	@When("^Check xml property is passed in command line$")
+	public void read_prop_file() throws Throwable {
+		;
+	}
+
 
 }

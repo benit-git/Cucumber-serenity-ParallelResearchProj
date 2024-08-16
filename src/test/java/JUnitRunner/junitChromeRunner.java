@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/Feature",
 		glue = {"stepDefinations" },
 		plugin = {"json:target/jsonReports/cucumber.json"}
-		//tags = {"@WomenSection"}
+		,tags = {"@tag11"}
 		)
 
 public class junitChromeRunner {

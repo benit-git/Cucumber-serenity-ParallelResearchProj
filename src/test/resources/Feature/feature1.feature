@@ -4,7 +4,7 @@ Background: this is to test background in feature file
 	Given Set webdriver and launch site "https://magento.softwaretestingboard.com/"
 	
 	
-@WomenSection
+@WomenSection @UItests
 Scenario: Select Women's Tab
 	Given Page title as "Home Page"
 	Then i select Women's tab
@@ -30,7 +30,7 @@ Scenario: Select Women's Tab
 	Then i verify details as "Vidhi Shetty"
 	Then i click on Place Order 
 	
-@Negative_Scenario
+@Negative_Scenario @UItests
 Scenario: Negative scenario
 	Given Page title as "Home Page"
 	Then i select Women's tab
@@ -46,7 +46,7 @@ Scenario: Negative scenario
 	Then i click on Next
 	Then i verify Error messages
 	
-@Negative_Scenario @vi
+@Negative_Scenario @vi @UItests
 Scenario Outline: Negative scenario2
 	Given Page title as "Home Page"
 	Then i select Women's tab
@@ -71,7 +71,7 @@ Examples:
 	|Email           |Email1	 |Email2		|
 	|"vids"          |"vids@bull"|"vids@bulls.c"|
 	
-@Scenario3
+@Scenario3 @UItests
 Scenario: Shipping Error Case
 	Given Page title as "Home Page"
 	Then i select Women's tab

@@ -10,15 +10,11 @@ import java.util.List;
 import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import net.serenitybdd.cucumber.CucumberWithSerenity;
 
-@RunWith(CucumberWithSerenity.class)
+@RunWith(Cucumber.class)
 @CucumberOptions(features = {"$featureFile"} // the path of the feature files
 		,glue= #stringArray($glue)
 		,plugin = #stringArray($plugins)
-		#if(!$featureFile.contains(".feature:") && $tags)
-		,tags = #stringArray($tags)
-		#end
 		
 		
 		
